@@ -19,10 +19,13 @@ def draw_board(board):
     for i in range(3):
         print("|", board[0+i*3], "|", board[1+i*3], "|", board[2+i*3], "|")
         print("-------------")
+        
+        
 #Зададим функцию хода 
 def take_input(token):
     valid = False
     while not valid:
+    
 #Cоздадим переменную в численном типе ,куда мы хотим поставить X или 0
         player_answer = int(input(("Куда поставим" + token+"? ")))
         if player_answer >=1 and player_answer <=9:
@@ -33,6 +36,7 @@ def take_input(token):
                 print("Эта клетка уже занята")
         else:
             print("Некорректный ввод. Введите число от 1 до 9 для хода ")
+            
 #Функция на проверку выйгрыша 
 def check_win(board):
     win_coord = ((0,1,2), (3,4,5), (6,7,8),(0,3,6),(1,4,7),(2,5,8),(0,4,8),(2,4,6))
@@ -40,6 +44,7 @@ def check_win(board):
         if board[each[0]] == board[each[1]] == board[each[2]]:
             return board[each[0]]
         return False
+        
 #Собирем все написанные функции
 def main(board):
     win = False
@@ -59,6 +64,7 @@ def main(board):
                 print(tmp, "победа")
         if counter == 9:
             print("Ничья")
+            
 #Для вывода игрового поля 
     draw_board(board)
 
